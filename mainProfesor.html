@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta charset="utf-8"/>
+		<title>Unitec Móvil</title>
+		<!--Estilos De La Página-->
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+		<link rel="stylesheet" href="CSS/style.css" />
+		<link rel="stylesheet" href="CSS/photoswipe.css" />
+		<link rel="stylesheet" type="text/css" href="CSS/loginP1.css">
+		<!--JavaScript-->	
+		<script src="JavaScript/jquery.js"></script>
+		<script src="JavaScript/jquery-mobile.js"></script>
+		<script src="JavaScript/klass.min.js"></script>
+		<script src="JavaScript/code.photoswipe.jquery-3.0.4.min.js"></script>
+		<script src="JavaScript/custom.js"></script>		
+		<script src="JavaScript/json.js"></script>		
+	</head>
+	<body>
+		<!--Creacion De La Página de Jquery Mobile Menú Del Profesor-->
+		<div data-role="page" id="menuProfesor">
+			<!--Header-->
+			<div data-role="header" id="header">
+				<h1>UNITEC</h1>
+				<!--Botón Salin-->
+				<a data-role="button" data-theme="c" data-icon="delete" data-iconpos="left" class="botonSalir">Salir</a>
+			</div>
+			<!-- Finaliza Header-->
+			<!--Creacion Del Contenido De La Página-->
+			<div data-role="content">
+				<!--Lista Con Las Opciones-->
+				<ul data-role="listview" data-inset="true" data-theme="a">
+					<li>
+						<a href="#horarioDelProfesor" data-transition="slide">Horario</a>
+					</li>
+					<li>
+						<a href="#notaAlumnosProfesor" data-transition="slide"> Ver Notas</a>
+					</li>
+					<li>
+						<a href="#profesorNotas" data-transition="slide"> Insertar Notas </a>
+					</li>	
+					<li>
+						<a href="#modificarProfesor" data-transition="slide"> Modificar Datos </a>
+					</li>				
+				</ul>
+				<!--Fin De La Lista-->
+			</div>
+			<!--Fin Del Contenido De La Página-->
+			<!--Footer-->
+			<div data-role="footer" data-theme="a">			        		<h4>Plataforma Movil</h4>           		
+           	</div>
+          	<!-- Finaliza Footer-->
+		</div>
+		<!--Fin De La Pagina Menu Profesor-->
+
+		<!--Creacion De La Página Ver Horario Del Profesor-->
+		<div data-role="page" id="horarioDelProfesor">
+			<!--Header -->
+			<div data-role="header" id="header">
+				<!--Botón De Atras-->
+				<a href="#menuProfesor" data-transition="flip" data-role="button" data-theme="c" data-icon="arrow-l" data-iconpos="left" >Atras</a>
+				<h1>UNITEC</h1>
+				<!--Botón Salin-->
+                <a data-role="button" data-inline="true" data-theme="c" data-icon="delete" data-iconpos="left" class="botonSalir">Salir</a>		
+			</div>
+			<!-- Finaliza Header-->
+			<!--Creacion Del Contenido De La Página-->
+			<div data-role="content">	
+				<!--Lista Con El Horario-->
+		        <ul data-role="listview" data-divider-theme="d" data-inset="true" id="horarioP">        
+		        </ul>
+		        <!--Fin De La Lista-->
+			</div>
+			<!--Fin Del Contenido De La Página-->
+			<!--Footer-->
+			<div data-role="footer">		
+				<h4>Plataforma Movil</h4>	
+			</div>
+			<!-- Finaliza Footer-->
+		</div>	
+		<!--Fin De La Pagina Horario Del Profesor-->
+
+		<!--Creacion De La Página Ver Notas De Los Alumnos Del Profesor-->
+		<div data-role="page" id="notaAlumnosProfesor">
+			<!--Header-->
+			<div data-role="header" id="header">
+			 	<!--Botón De Atras-->
+				<a href="#menuProfesor" data-transition="flip" data-role="button" data-theme="c" data-icon="arrow-l" data-iconpos="left" >Atras</a>
+				<h1>UNITEC</h1>
+				<!--Botón Salin-->
+                <a data-role="button" data-inline="true" data-theme="c" data-icon="delete" data-iconpos="left" class="botonSalir">Salir</a>
+			</div>
+			<!-- Finaliza Header-->
+			<!--Creacion Del Contenido De La Página-->
+			<div data-role="content">
+				<!--Formulario-->
+				<form method="GET" name="frm">
+					<!--Select Que Contendra Las Diferentes Materias Para Escoger-->
+				 	<h3 id="prueba" title="Aqui Debe Selecionar La Materia Que Da El Profesor" class="tooltip">Materia</h3>			 		
+				 	<select id="sel-materia2">
+				 		<option>--Seleccione--</option>				
+					</select>	
+					<!--Select Con Las Carreras-->
+					<h3> Carrera:</h3>	
+					<select id="sel-carrera2">
+						<option >--Seleccione--</option>
+					</select>	
+					<!--Select Con El Horario-->
+					<h3> Horario:</h3>	
+					<select name="sel" id="sel-horario2">
+						<option>--Seleccione--</option>
+					</select>		
+				</form>
+				<!--Fin Formulario-->
+				<br>
+				<!--Lista Con Las Notas De Los Alumnos-->
+				<ul id="jnk" data-role="listview" data-filter="true">
+				</ul>
+				<!--Fin De La Lista-->						
+			</div>
+			<!--Fin Del Contenido De La Página-->
+			<!--Footer-->
+			<div data-role="footer">			 
+				<h4>Plataforma Movil</h4>			
+			</div>
+			<!-- Finaliza Footer-->
+		</div>
+		<!--Fin De La Pagina Notas De Los Alumnos Del Profesor-->	
+
+		<!--Creacion De La Página Agregar Notas-->
+		<div data-role="page" id="profesorNotas">
+			<!--Header-->
+			<div data-role="header" id="header">
+				<!--Botón De Atras-->
+				<a href="#menuProfesor" data-transition="flip" data-role="button" data-theme="c" data-icon="arrow-l" data-iconpos="left" >Atras</a>
+				<h1>UNITEC</h1>
+				<!--Botón Salin-->
+                <a data-role="button" data-inline="true" data-theme="c" data-icon="delete" data-iconpos="left" class="botonSalir">Salir</a>
+			</div>
+			<!-- Finaliza Header-->			
+			<!--Creacion Del Contenido De La Página-->
+			<div data-role="content">
+				<!--Formulario-->
+				<form method="GET" name="frm">
+					<!--Select Que Contendra Las Diferentes Materias Para Escoger-->
+			 		<h3 id="prueba" title="Aqui Debe Selecionar La Materia Que Da El Profesor" class="tooltip">Materia</h3>			 		
+			 		<select id="sel-materia">
+			 			<option>--Seleccione--</option>				
+					</select>	
+					<!--Select Con Las Carreras-->
+					<h3> Carrera:</h3>	
+					<select id="sel-carrera">
+						<option >--Seleccione--</option>
+					</select>	
+					<!--Select Con El Horario-->
+					<h3> Horario:</h3>	
+					<select name="sel" id="sel-horario">
+						<option>--Seleccione--</option>
+					</select>		
+					<!--Opciones Para Agregar Las Notas De Los Estudiantes-->
+					<h3>Agregar Notas:</h3>		 
+		            <!-- Selecciona un solo Alumno -->
+		            <div data-role="collapsible-set" >
+			            <div data-role="collapsible" data-collapsed="true" id="todoAlumnos">
+			            	<h3>Seleccionar Alumno</h3>
+							<ul id="uu" data-role="listview" >
+								<li id="lali">						
+								</li>
+								<li>
+									<div>
+										<label for="nota1">Nota &nbsp &nbsp &nbsp &nbsp &nbsp</label>
+										<input type="number" name="nota" id="nota1" value="" placeholder="Nota" onkeypress="return soloLetras(event)" />
+									</div>
+								</li>
+							</ul>							
+			            </div>
+						<!-- FIN Selecciona un solo Alumno -->
+						<!-- Busca un Alumno -->
+						<div data-role="collapsible" id="unAlumno">
+							<h3>Escoger Alumno</h3>
+							<fieldset data-role="fieldcontain">
+								<!--TextBox De La Cedula Del Estudiante-->
+								<div data-role="fieldcontain">
+									<label for="buscar">Cedula &nbsp &nbsp &nbsp</label>
+									<input type="search" name="buscar" id="buscar" value="" placeholder="Buscar Cedula"/>
+								</div>
+								<!--TextBox De La Nota-->
+								<div data-role="fieldcontain">
+									<label for="nota2">Nota &nbsp &nbsp &nbsp &nbsp &nbsp</label>
+									<input type="number" name="nota2" id="nota2" value="" placeholder="Nota" onkeypress="return soloLetras(event)" />
+								</div>
+							</fieldset>
+						</div>
+					</div>
+					<!-- FIN Busca un  Alumno -->		
+					<!--Boton Para Guardar-->		
+       				<a data-role="button" data-icon="star" data-theme="a" id="botonAgregaNota" name="botonAgregaNota">Guardar Cambios</a>
+				</form>		
+				<!--Fin Del Formulario-->
+			</div>
+			<!--Fin Del Contenido-->
+			<!--Footer-->
+			<div data-role="footer" data-theme="a" id="footer">		
+				<h4> Plataforma Movil</h4>							
+			</div>
+			<!-- Finaliza Footer-->
+		</div>	
+		<!--Fin De La Pagina Agregar Notas-->
+
+		<!--Inicio De La Pagina Modificar Profesor-->
+		<div data-role="page" id="modificarProfesor">
+			<!--Header -->
+			<div data-role="header" id="header">
+				<a href="#menuProfesor" data-transition="flip" data-role="button" data-theme="c" data-icon="arrow-l" data-iconpos="left" >Atras</a>
+				<h1>UNITEC</h1>
+				<!--Botón Salin-->
+                <a data-role="button" data-inline="true" data-theme="c" data-icon="delete" data-iconpos="left" class="botonSalir">Salir</a>		
+			</div>
+			<!-- Finaliza Header-->
+			<!--Creacion Del Contenido De La Página-->
+			<div data-role="content">	
+				<!--Formulacion-->
+				<form method="get"> 
+					<label for="NombreModificar">Nombres</label>
+		            <input type="text" name="NombreModificar" id="NombreModificar" />
+		            <hr id='nnn'>
+		            <label for="ApellidoModificar">Apellidos</label>
+		            <input type="text" name="ApellidoModificar" id="ApellidoModificar" />
+		            <hr id='nnn'>        
+		            <!--TextBox Con El Correo-->
+		            <label for="CorreoModificar" >Correo</label>
+			        <input type="text" id="CorreoModificar" nombre="CorreoModificar" />	
+			        <hr id='nnn'>
+			        <!--Boton Para Modificas-->    
+            		<a data-role="button" id="modificar" data-theme="a">Modificar</a>  
+			    </form>     
+		        <!--Fin Del Formulario-->
+			</div>
+			<!--Fin Del Contenido De La Página-->
+			<!--Footer-->	
+			<div data-role="footer">		
+				<h4>Plataforma Movil</h4>		
+			</div>
+			<!-- Finaliza Footer-->
+		</div>
+		<!--Fin De La Pagina Modificar Profesor-->
+	</body>
+</html>
