@@ -3,13 +3,24 @@ html
 	height: 100%;
 	width: 100%;
 }
-
-#header{
+/* Header Principal Inicio*/
+header{
 	width: auto;
 	padding: 1px;
 	background: #3F51B5;
 }
 
+/* Header Prof*/
+.headerProf{
+	background-color: #03A9F4;
+	height: 50px;
+}
+
+.headerProf  h3{
+	margin: 15px 10px 15px 10px;
+	color: #E8EAF6;
+	font-weight: bold; 
+}
 #logoUnitec img{
 	width: 250px;
 	display: block;
@@ -66,7 +77,11 @@ input:focus ~ .animateMove, input:valid ~ .animateMove{
 	font-size: 14px;
 	color: #5264AE;
 }
-
+/* Outline of log in inputs*/
+input:focus{
+	outline: none;
+	border: none;
+}
 
 /* Bottom bars*/
 .bar {
@@ -82,7 +97,6 @@ input:focus ~ .animateMove, input:valid ~ .animateMove{
 	bottom: 1px;
 	position: absolute;
 	background: #5264AE;
-	
 }
 
 .bar:before{
@@ -96,6 +110,7 @@ input:focus ~ .animateMove, input:valid ~ .animateMove{
 
 input:focus ~ .bar:before, input:focus ~ .bar:after{
 	width: 50%;
+	outline: none;
 }
 
 /* Highlighter*/
@@ -108,6 +123,7 @@ input:focus ~ .bar:before, input:focus ~ .bar:after{
 	left: 0;
 	pointer-events:none;
 	opacity: 0.5;
+	border: 0;
 }
 
 
@@ -123,21 +139,56 @@ input:focus ~ .highlight{
 	border-radius: 2px;
 	font-size: 0.9em;
 	background: #FFF;
-    color: #000;
-  
+  color: #000;
 }
 
 .button.teal{
 	background: #5C6BC0;
 	color: #E8EAF6;
 }
-.button:hover{
-	background: #009688;
+.button:focus{
+	background: #536DFE;
 	transition: 0.2s ease all;
+	animation: inputWave 0.3s ease;
 }
 /*Animation */
 @keyframes inputHighlighter{
 	 from { background: #5264AE;}
 	 to   {width: 0; 
 	 		background: transparent;}
+}
+
+/* Menu UL*/
+
+.spaceMenu{
+	display: block;
+	width: 320px;
+	list-style: none;
+	text-align: justify;
+	padding: 0;
+}
+
+.spaceMenu li{
+	position: relative;
+	padding: 15px 15px 15px 15px;
+	margin: 5px 10px 10px 10px;
+	height: 40px;
+  color: #646464;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+  /*background-color: #E1F5FE;*/
+}
+
+.spaceMenu li a{
+	color: #01579B;
+	text-decoration: none;
+	font-size: 18px;
+	font-weight: bold;
+	width: 100%;
+	height: 40px;
+}
+
+.spaceMenu li:hover {
+	background: red;
+	transition: opacity ease-in 0.2s;
 }
