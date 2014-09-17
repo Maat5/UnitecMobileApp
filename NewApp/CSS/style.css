@@ -10,17 +10,6 @@ header{
 	background: #3F51B5;
 }
 
-/* Header Prof*/
-.headerProf{
-	background-color: #03A9F4;
-	height: 50px;
-}
-
-.headerProf  h3{
-	margin: 15px 10px 15px 10px;
-	color: #E8EAF6;
-	font-weight: bold; 
-}
 #logoUnitec img{
 	width: 250px;
 	display: block;
@@ -33,7 +22,6 @@ header{
 	color: #E8EAF6;
 	text-align: center;
 }
-
 .wrapper{
 	width: 320px;
 	position: relative;
@@ -44,6 +32,15 @@ header{
 	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
 }
 
+.menuWrapper{
+	width: auto;
+	/*width: 330px;*/
+	position: relative;
+	display: block;
+	margin: 0 auto;
+	top: 20px;
+	padding: 10px 10px 10px 10px;
+}
 .groupLogin{
 	position: relative;
 	margin-bottom: 45px;
@@ -130,6 +127,7 @@ input:focus ~ .bar:before, input:focus ~ .bar:after{
 /* Active state*/
 input:focus ~ .highlight{
 	animation: inputHighlighter 0.3s ease;
+	-webkit-animation:inputHighlighter 0.3s ease;
 }
 
 .button{
@@ -146,23 +144,35 @@ input:focus ~ .highlight{
 	background: #5C6BC0;
 	color: #E8EAF6;
 }
-.button:focus{
-	background: #536DFE;
-	transition: 0.2s ease all;
-	animation: inputWave 0.3s ease;
+.button:active{
+	animation: buttonInput 0.3s ease;
+	-webkit-animation:buttonInput 0.3s ease;
 }
-/*Animation */
-@keyframes inputHighlighter{
-	 from { background: #5264AE;}
-	 to   {width: 0; 
-	 		background: transparent;}
+
+/* -------------------------- Start Menu Section ------------------*/
+/* Header Prof*/
+.headerProf{
+	background-color: #3F51B5;
+	height: 50px;
+	box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.headerProf  h3{
+	margin: 15px 10px 15px 25px;
+	color: #E8EAF6;
+	font-weight: bold;
+	text-align: left;
+}
+.headerProf label{
+	position: relative;
+	left: 10px;
 }
 
 /* Menu UL*/
-
 .spaceMenu{
 	display: block;
-	width: 320px;
+	/* width: 320px;*/
+	width: 100%;
 	list-style: none;
 	text-align: justify;
 	padding: 0;
@@ -171,24 +181,151 @@ input:focus ~ .highlight{
 .spaceMenu li{
 	position: relative;
 	padding: 15px 15px 15px 15px;
-	margin: 5px 10px 10px 10px;
+	margin: 20px 10px 10px 10px;
 	height: 40px;
   color: #646464;
-  border-radius: 2px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
-  /*background-color: #E1F5FE;*/
+  background-color: #455EDE;
+  cursor: pointer;
 }
 
-.spaceMenu li a{
+
+.centerLink{
+	position: relative;
+	top:0;
+	text-align: left;
+}
+.centerLink a{
 	color: #01579B;
 	text-decoration: none;
 	font-size: 18px;
 	font-weight: bold;
-	width: 100%;
-	height: 40px;
+	color:#F1F1F1;
+	margin-left: 0px;
+	display: block;
+	padding: 10px 20px 10px 20px;
+}
+li a{
+	
+}
+/* Menu Arrows*/
+li i{
+	position: absolute;
+	top: 18px;
+	right: 15px;
+	width: 15px;
+	text-align: center;
+	padding: 10px 10px 10px 10px;
+	border-radius: 50%;
+	color:#F1F1F1;
 }
 
-.spaceMenu li:hover {
-	background: red;
-	transition: opacity ease-in 0.2s;
+li i:hover{
+	background-color: #A6BAFF;
+	color: black;
+	transition: 0.2s linear all;
 }
+
+li:active{
+	animation: buttonInput 0.2s ease;
+	-webkit-animation: buttonInput 0.2s ease;
+	/*transition:0.2s ease all;*/
+}
+/* -------------------- Finish Menu Section--------------*/
+
+/* -------------------- Start schedule Section ------------- */
+
+.listview{
+	list-style: none;
+	width: auto;
+	margin: 0 25px 10px 5px;
+	padding: 0;
+	font-weight: bold;
+}
+.divider{
+
+	width: 100%;
+	padding: 2%;
+	margin: 0 auto;
+	/* color: #eceff1;*/
+}
+.divider label{
+	margin-left: 10px;
+}
+.cont{
+	text-align: center;	
+	margin: 2px auto;
+	width: 88.5%;
+	margin-left: 8px;
+	padding: 5%;
+
+}
+#nomMat{
+	display: block;
+	margin-top: 10px;
+	font-size: 16px;	
+}
+
+#horaMAt{
+	display: block;
+	margin-top: 5px;
+	font-size: 14px;
+
+}
+
+/* --------------------Finish schedule section---------------*/ 
+/*Animation */
+@keyframes inputHighlighter{
+	 from{
+	  background: #5264AE;
+	}
+	 to{
+	 	width: 0; 
+	 	background: transparent;
+	 }
+}
+@-webkit-keyframes inputHighlighter{
+	 from{
+	  background: #5264AE;
+	}
+	to{
+		width: 0; 
+	 	background: transparent;
+	}
+}
+
+@-webkit-keyframes buttonInput{
+	from { 
+		background: #9FA8DA;
+	}
+	to  {
+		margin-left: 100px;	
+		width: 0;
+		background: transparent;
+	}
+}
+
+/* ------------------------ Colors -------------------*/
+
+.orange,.blueGray,.blueGrayLight,.orangeLight{
+	color: #E8EAF6;
+}
+.orange{
+	background: #ff9800;
+}
+.orangeLight{
+	background: #FFA726;
+}
+.orangeLightM{
+	background: #FFF3E0;
+}
+.blueGray{
+	background: #607D8b;
+}
+.blueGrayLight{
+	background: #B0BEC5;
+}
+.whiteGray{
+	background: #CFD8DC;
+}
+/* ------------------ Finish Colors ------------------*/
