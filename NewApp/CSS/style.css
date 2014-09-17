@@ -23,7 +23,7 @@ header{
 	text-align: center;
 }
 .wrapper{
-	width: 320px;
+	width: auto;
 	position: relative;
 	display: block;
 	margin: 0 auto;
@@ -31,7 +31,9 @@ header{
 	padding: 10px 10px 10px 10px;
 	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
 }
-
+.less{
+	top:0;
+}
 .menuWrapper{
 	width: auto;
 	/*width: 330px;*/
@@ -47,17 +49,18 @@ header{
 	top: 15px;
 }
 
-input{
+input,select{
 	font-size: 19px;
 	padding: 10px 10px 10px 5px;
 	display: block;
-	width: 300px;
+	/*width: 300px;*/
+	width: 99%;
 	border: none;
 	border-bottom: 1px solid #757575;
 }
 
 /* Login Label - moving*/
-.animateMove{
+.animateMove, .animateMoveList{
 	color:  #999;
 	font-size: 18px;
 	font-weight: normal;
@@ -69,7 +72,7 @@ input{
 }
 
 /* Animation of log in form */
-input:focus ~ .animateMove, input:valid ~ .animateMove{
+input:focus ~ .animateMove, input:valid ~ .animateMove,select:focus ~ .animateMoveList, select:valid ~ .animateMoveList{
 	top: -20px;
 	font-size: 14px;
 	color: #5264AE;
@@ -140,10 +143,7 @@ input:focus ~ .highlight{
   color: #000;
 }
 
-.button.teal{
-	background: #5C6BC0;
-	color: #E8EAF6;
-}
+
 .button:active{
 	animation: buttonInput 0.3s ease;
 	-webkit-animation:buttonInput 0.3s ease;
@@ -226,7 +226,7 @@ li i:hover{
 	transition: 0.2s linear all;
 }
 
-li:active{
+.spaceMenu li:active{
 	animation: buttonInput 0.2s ease;
 	-webkit-animation: buttonInput 0.2s ease;
 	/*transition:0.2s ease all;*/
@@ -241,9 +241,9 @@ li:active{
 	margin: 0 25px 10px 5px;
 	padding: 0;
 	font-weight: bold;
+	margin-left:2%;
 }
 .divider{
-
 	width: 100%;
 	padding: 2%;
 	margin: 0 auto;
@@ -259,21 +259,46 @@ li:active{
 	margin-left: 8px;
 	padding: 5%;
 
-}
-#nomMat{
+} 
+.nomMat,.horaMAt{
 	display: block;
+}
+.nomMat{
 	margin-top: 10px;
 	font-size: 16px;	
 }
 
-#horaMAt{
-	display: block;
+.horaMAt{
 	margin-top: 5px;
 	font-size: 14px;
-
 }
 
-/* --------------------Finish schedule section---------------*/ 
+/* --------------------Finish schedule section---------------*/
+/* -------------------- Notes section-----------------------*/
+.listview2{
+	display: block;
+	list-style: none;
+	padding: 0;
+}
+.item{
+	text-align: justify;
+	padding: 1%;
+	width: 96%;
+	border-bottom: 1px solid #999;
+}
+#searchInput{
+	width: 95%;
+}
+
+.sub-item{
+	display: block;
+	padding: 1%;
+	font-size: 15px;
+	font-weight: bold;
+	width: auto;
+	margin-top: 5px;
+}
+/* --------------------Finish Notes section---------------*/ 
 /*Animation */
 @keyframes inputHighlighter{
 	 from{
@@ -307,7 +332,7 @@ li:active{
 
 /* ------------------------ Colors -------------------*/
 
-.orange,.blueGray,.blueGrayLight,.orangeLight{
+.orange,.blueGray,.blueGrayLight,.orangeLight, .teal, .teals{
 	color: #E8EAF6;
 }
 .orange{
@@ -327,5 +352,11 @@ li:active{
 }
 .whiteGray{
 	background: #CFD8DC;
+}
+.teals{
+	background: #009688;
+}
+.teal{
+	background: #5C6BC0;
 }
 /* ------------------ Finish Colors ------------------*/

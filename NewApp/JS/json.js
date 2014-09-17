@@ -23,7 +23,7 @@ function inicio()
     cargarHorarioProfesor();
     cargarHorarioAlumnos();
     cargarNotaAlumno();
-    cargarDatos();
+    cargarDatos();    
 }
 
 function agregarNota(){
@@ -424,7 +424,7 @@ function login(){
         else
              if(respuestaServer.validacion > 0 && respuestaServer.T== 2){       
             /// Si La Validacion Es Correcta, Muestra La Página Main        
-            location.href='mainProfesor.html';          
+            location.href='mainMenuProf.html';          
         }
         else
         {   
@@ -503,12 +503,14 @@ function soloLetras(e){
 }
 
 
-
-
-
 /*$(document).bind("pageinit", function(){
    console.log('bindtomobileinit: event pageinit received');
    $.mobile.loadPage("main2.html", {prefetch:"true"});
    //$.mobile.changePage('solicitudes.html', 'pop');
    console.log('aa');
 });*/
+
+
+
+/* ///////*/ 
+
