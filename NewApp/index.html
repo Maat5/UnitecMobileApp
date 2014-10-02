@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="CSS/normalize.css">
 	<link rel="stylesheet" href="CSS/style.css">
 	<script src="JS/jquery.js"></script>
-	<script src="JS/json.js" ></script>
+	<script src="JS/app.js" ></script>
 </head>
 <body>
 
@@ -18,23 +18,24 @@
 		<h1>Universidad Tecnológica del Centro</h1>
 	</header>
 	<section class="wrapper">
-		<form id="formulario-login" action="mainMenuProf.html">
+		<form id="formulario-login" action="PHP/validLogin.php" METHOD="GET">
 			<section class="groupLogin">
-				<input type="text" id="usuario" required>
+				<input type="text" id="usuario" name="usuario"required>
 				<span class="highlight"></span>
 				<span class="bar"></span>
-				<label class="animateMove">Cedula</label>
+				<label  id="cedLab" class="animateMove">Cedula</label>
 			</section>
 
 			<section class="groupLogin">
-				<input type="password" id="password" required>
+				<input type="password" id="password" name="password" required>
 				<span class="highlight"></span>
 				<span class="bar"></span>
-				<label class="animateMove">Contraseña</label>
+				<label id="passLab" class="animateMove">Contraseña</label>
 			</section>
 
 			<div >
 				<input type="submit" value="Ingresar" class="button teal" id="submitButton">
+
 			</div>
 		</form>
 
