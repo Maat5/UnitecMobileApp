@@ -373,3 +373,8 @@ li i:hover{
 	background: #5C6BC0;
 }
 /* ------------------ Finish Colors ------------------*/
+
+/*--------------------- Hiden items------------------- */
+#hiden1{
+	display: none;
+}

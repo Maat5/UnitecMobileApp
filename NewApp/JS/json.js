@@ -5,16 +5,16 @@ var refrescar=0;
 
 function inicio()
 {    
-    window.onload = bloquearAtras();
-    $('#formulario-login').on("submit",login);
+   // window.onload = bloquearAtras();
+   // $('#formulario-login').on("submit",login);
 
     $('#botonAgregaNota').on("click", agregarNota);
-    $('#sel-carrera').on("change",cargarHorario);
-    $('#sel-carrera2').on("change",cargarHorario2);
-    $('#sel-materia').on("change",cargarCarreras);
-    $('#sel-materia2').on("change",cargarCarreras2);
-    $('#sel-horario').on("change",cargarAlumnos);
-    $('#sel-horario2').on("change",cargarAlumnos2);
+    $('#nomCarrera').on("change",cargarHorario);
+    $('#nomCarrera2').on("change",cargarHorario2);
+    $('#nomMateria').on("change",cargarCarreras);
+    $('#nomMateria2').on("change",cargarCarreras2);
+    $('#nomHorario').on("change",cargarAlumnos);
+    $('#nomHorario').on("change",cargarAlumnos2);
     $('.botonSalir').on("click",salir);
     $('#sendMail').on("click",mailSolicitud);
     $('#modificar').on("click",modificarDatos);
@@ -158,17 +158,17 @@ function cargarAlumnos(){
 function cargarAlumnos2(){
 
     $('#jnk').empty();
-    var horario = $('#sel-horario2').val();
+    var horario = $('#nomHorario').val();
     var alumnos = $('#jnk');
     //JSON
     var url = "http://unitec.260mb.org/AplicacionesPHP/cargarAlumnos.php?jsoncallback=?";
     $.getJSON(url, { horarioJ:horario})
     .done(function(data){    var cant=0;
         $.each(data, function(i,item){
-    
-            var agregaA = '<li class="ui-li ui-li-static ui-body-c" style="text-align:center">'+item.Nombre+' '+item.Apellido+' CI: '+item.Cedula+ " Nota: "+item.Id_Nota_Estudiante+'</br></li>';
-          
-            alumnos.append(agregaA);            
+           var agregaA = '<li class="item"><span class="sub-item">'+item.Nombre+' '+item.Apellido+' C.I: '+item.Cedula+'</span><span class="sub-item">Nota : <label>'+item.Id_Nota_Estudiante+'</label></span>  </li>';
+            $('#hiden1').show();  
+            alumnos.append(agregaA);     
+
         });
     });  
 }
@@ -176,13 +176,13 @@ function cargarAlumnos2(){
 function cargarCarreras(){
     $('#lali').empty();
     //Toma El Valor Del Select De La Carrera    
-    var materia = $('#sel-materia option:selected').text();
-    var horario = $("#sel-horario");
-    var carreraa = $("#sel-carrera");
-    $("#sel-horario").empty();
-    $('#sel-horario').append('<option selected>--Seleccione--</option>');
-    $("#sel-carrera").empty();
-    $('#sel-carrera').append('<option selected>--Seleccione--</option>');
+    var materia = $('#nomMateria option:selected').text();
+    var horario = $("#nomHorario");
+    var carreraa = $("#nomCarrera");
+    $("#nomHorario").empty();
+    $('#nomHorario').append('<option selected>--Seleccione--</option>');
+    $("#nomCarrera").empty();
+    $('#nomCarrera').append('<option selected>--Seleccione--</option>');
     //JSON
     var url = "http://unitec.260mb.org/AplicacionesPHP/selectCarrera.php?jsoncallback=?";
     $.getJSON(url, { materiaJ:materia})
@@ -236,11 +236,11 @@ function cargarDatos(){
 function cargarHorario(){
     $('#lali').empty();
     //Toma El Valor Del Select De La Carrera    
-    var carrera = $('#sel-carrera option:selected').text();
-    var materia = $('#sel-materia option:selected').text();
-    var horario = $("#sel-horario");
-    $("#sel-horario").empty();
-    $('#sel-horario').append('<option selected>--Seleccione--</option>');
+    var carrera = $('#nomCarrera option:selected').text();
+    var materia = $('#nomMateria option:selected').text();
+    var horario = $("#nomHorario");
+    $("#nomHorario").empty();
+    $('#nomHorario').append('<option selected>--Seleccione--</option>');
     //var valor = $("#sel-horario option:selected").html();
     //alert(valor); 
     //JSON
@@ -258,11 +258,11 @@ function cargarHorario(){
 function cargarHorario2(){
     $('#jnk').empty();
     //Toma El Valor Del Select De La Carrera    
-    var carrera = $('#sel-carrera2 option:selected').text();
-    var materia = $('#sel-materia2 option:selected').text();
-    var horario = $("#sel-horario2");
-    $("#sel-horario2").empty();
-    $('#sel-horario2').append('<option selected>--Seleccione--</option>');
+    var carrera = $('#nomCarrera2 option:selected').text();
+    var materia = $('#nomMateria2 option:selected').text();
+    var horario = $("#nomHorario2");
+    $("#nomHorario2").empty();
+    $('#nomHorario2').append('<option selected>--Seleccione--</option>');
     //var valor = $("#sel-horario option:selected").html();
     //alert(valor); 
     //JSON
@@ -314,7 +314,8 @@ function cargarHorarioAlumnos(){
 
 function cargarHorarioProfesor(){
     var galleta = $.cookie('usuario');  
-    var lista=$("#horarioP");
+    //var lista=$("#horarioP");
+    var lista = $('.listview');
     var url = "http://unitec.260mb.org/AplicacionesPHP/verHorarioProfe.php?jsoncallback=?";
     $.getJSON(url, { cedulaJ:galleta})
     .done(function(data) {   
@@ -330,14 +331,15 @@ function cargarHorarioProfesor(){
                 dia=item.Dia;
             }
             if(dia==item.Dia && cant==1){
-             agregarM = '<li class="ui-li ui-li-divider ui-btn ui-bar-d ui-btn-up-undefined" role="heading" data-role="list-divider">'+item.Dia+'</li><li class="ui-li ui-li-static ui-body-c ui-corner-bottom"><p style="font-size:14px; text-align: center; font-weight:bold; color:black;">'+item.Nombre_Materia+'</p><p style="font-size:14px; text-align: center; font-weight:bold; color:black; ">' +item.Hora_Inicio+' A '+item.Hora_Fin+'</p>'; 
+                agregarM = '<li class="divider orangeLight"><label>'+item.Dia+'</label></li><li class="divider cont orangeLightM"><span class="nomMat">'+item.Nombre_Materia+'</span><span class="horaMAt">'+item.Hora_Inicio+' A '+item.Hora_Fin+'</span></li>' ;
              }
             if(dia==item.Dia && cant != 1){
-                agregarM += '<li class="ui-li ui-li-static ui-body-c ui-corner-bottom"><p style="font-size:14px; text-align: center; font-weight:bold; color:black;">'+item.Nombre_Materia+' </p><p style="font-size:14px; text-align: center; font-weight:bold; color:black;">' +item.Hora_Inicio+' A '+item.Hora_Fin+'</p>';  
+              //  agregarM += '<li class="ui-li ui-li-static ui-body-c ui-corner-bottom"><p style="font-size:14px; text-align: center; font-weight:bold; color:black;">'+item.Nombre_Materia+' </p><p style="font-size:14px; text-align: center; font-weight:bold; color:black;">' +item.Hora_Inicio+' A '+item.Hora_Fin+'</p>';  
             }
             if(dia!=item.Dia){
                 cant2=1;
-                agregarM += '<li class="ui-li ui-li-divider ui-btn ui-bar-d ui-btn-up-undefined" role="heading" data-role="list-divider">'+item.Dia+'</li><li class="ui-li ui-li-static ui-body-c ui-corner-bottom"><p style="font-size:14px;text-align: center; font-weight:bold; color:black;">'+item.Nombre_Materia+' </p><p style="font-size:14px;text-align: center; font-weight:bold; color:black;">' +item.Hora_Inicio+' A '+item.Hora_Fin+'</p>'; 
+               // agregarM += '<li class="ui-li ui-li-divider ui-btn ui-bar-d ui-btn-up-undefined" role="heading" data-role="list-divider">'+item.Dia+'</li><li class="ui-li ui-li-static ui-body-c ui-corner-bottom"><p style="font-size:14px;text-align: center; font-weight:bold; color:black;">'+item.Nombre_Materia+' </p><p style="font-size:14px;text-align: center; font-weight:bold; color:black;">' +item.Hora_Inicio+' A '+item.Hora_Fin+'</p>'; 
+               agregarM = '<li class="divider orangeLight"><label>'+item.Dia+'</label></li><li class="divider cont orangeLightM"><span class="nomMat">'+item.Nombre_Materia+'</span><span class="horaMAt">'+item.Hora_Inicio+' A '+item.Hora_Fin+'</span></li>' ;
                 dia= item.Dia;
             }          
                 
@@ -351,8 +353,8 @@ function cargarMaterias(){
 
     //var galleta = $.cookie('usuario');  
    // alert(galleta)
-    var materia= $("#sel-materia");
-    var materia2= $("#sel-materia2");
+    var materia= $("#nomMateria");
+    var materia2= $("#nomMateria2");
 
     var url = "http://unitec.260mb.org/AplicacionesPHP/selectMateria.php?jsoncallback=?";
     $.getJSON(url, { cook:"galleta"})
@@ -406,34 +408,6 @@ function cargarNotaAlumno(){
     });
 }
 
-function login(){
-    // Recolecta Los Valores Que Insertó El Usuario
-    var datosUsuario = $("#usuario").val();
-    var datosPassword = $("#password").val();
-    //JSON
-    var archivoValidacion = "http://unitec.260mb.org/AplicacionesPHP/login.php?jsoncallback=?";
-
-    $.getJSON( archivoValidacion, { usuario:datosUsuario,password:datosPassword})
-    .done(function(respuestaServer) {
-        
-        alert(respuestaServer.mensaje)
-        if(respuestaServer.validacion > 0 && respuestaServer.T== 1){       
-            /// Si La Validacion Es Correcta, Muestra La Página Main        
-            location.href='main2.html';          
-        }
-        else
-             if(respuestaServer.validacion > 0 && respuestaServer.T== 2){       
-            /// Si La Validacion Es Correcta, Muestra La Página Main        
-            location.href='mainMenuProf.html';          
-        }
-        else
-        {   
-            /// Ejecutar Una Conducta Cuando La Validacion Falla             
-        }
-  
-    });
-    return false;
-}
 
 function mailSolicitud(){
     var nom = $('#NameLast').val();
