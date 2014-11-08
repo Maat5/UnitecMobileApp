@@ -59,7 +59,7 @@ function agregarNota(){
         {
             if(nota!=""){
                 if(idalumnocarreramateria!=undefined){                
-                    var url = "http://unitec.260mb.org/AplicacionesPHP/agregarNotas.php?jsoncallback=?";
+                    var url = "http://127.0.0.1/AplicacionesPHP/agregarNotas.php?jsoncallback=?";
                     $.getJSON(url, { idehcm:idalumnocarreramateria,notaJ:nota}).done(function(data) {    
                     });
 
@@ -78,13 +78,13 @@ function agregarNota(){
         if(seleccion==2)
         {
             var id;
-            var url = "http://unitec.260mb.org/AplicacionesPHP/agregarNotas2.php?jsoncallback=?";
+            var url = "http://127.0.0.1/AplicacionesPHP/agregarNotas2.php?jsoncallback=?";
             $.getJSON(url, { cedulaJ:cedula,notaJ:nota, horarioJ:horario}).done(function(data) {    
                 var c=0;
                 $.each(data, function(i,item){                    
                     if(nota!=""){ 
                         c++;                       
-                        var url = "http://unitec.260mb.org/AplicacionesPHP/agregarNotas.php?jsoncallback=?";
+                        var url = "http://127.0.0.1/AplicacionesPHP/agregarNotas.php?jsoncallback=?";
                         $.getJSON(url, { idehcm:item.Id_EstudianteHorarioCarreraMateria,notaJ:nota}).done(function(data) {    
                         }); 
                     }
@@ -139,7 +139,7 @@ function cargarAlumnos(){
   var horario = $('#sel-horario').val();
   var alumnos = $('#lali');
   //JSON
-  var url = "http://unitec.260mb.org/AplicacionesPHP/cargaAlumnos2.php?jsoncallback=?";
+  var url = "http://127.0.0.1/AplicacionesPHP/cargaAlumnos2.php?jsoncallback=?";
   $.getJSON(url, { horarioJ:horario})
     .done(function(data){    var cant=0;
         $.each(data, function(i,item){
@@ -161,7 +161,7 @@ function cargarAlumnos2(){
     var horario = $('#sel-horario2').val();
     var alumnos = $('#jnk');
     //JSON
-    var url = "http://unitec.260mb.org/AplicacionesPHP/cargarAlumnos.php?jsoncallback=?";
+    var url = "http://127.0.0.1/AplicacionesPHP/cargarAlumnos.php?jsoncallback=?";
     $.getJSON(url, { horarioJ:horario})
     .done(function(data){    var cant=0;
         $.each(data, function(i,item){
@@ -184,7 +184,7 @@ function cargarCarreras(){
     $("#sel-carrera").empty();
     $('#sel-carrera').append('<option selected>--Seleccione--</option>');
     //JSON
-    var url = "http://unitec.260mb.org/AplicacionesPHP/selectCarrera.php?jsoncallback=?";
+    var url = "http://127.0.0.1/AplicacionesPHP/selectCarrera.php?jsoncallback=?";
     $.getJSON(url, { materiaJ:materia})
     .done(function(data) {    
         $.each(data, function(i,item){
@@ -206,7 +206,7 @@ function cargarCarreras2(){
     $("#sel-carrera2").empty();
     $('#sel-carrera2').append('<option selected>--Seleccione--</option>');
     //JSON
-    var url = "http://unitec.260mb.org/AplicacionesPHP/selectCarrera.php?jsoncallback=?";
+    var url = "http://127.0.0.1/AplicacionesPHP/selectCarrera.php?jsoncallback=?";
     $.getJSON(url, { materiaJ:materia})
     .done(function(data) {    
         $.each(data, function(i,item){
@@ -219,7 +219,7 @@ function cargarCarreras2(){
 
 function cargarDatos(){
     //Cargar los datos de los usuarios
-     var archivoValidacion = "http://unitec.260mb.org/AplicacionesPHP/cargarDatos.php?jsoncallback=?";
+     var archivoValidacion = "http://127.0.0.1/AplicacionesPHP/cargarDatos.php?jsoncallback=?";
     $.getJSON( archivoValidacion, { Cedula:"",Nombre:"",Apellido:"",Correo:""})
     .done(function(data) {
         $.each(data, function(i,item){
@@ -244,7 +244,7 @@ function cargarHorario(){
     //var valor = $("#sel-horario option:selected").html();
     //alert(valor); 
     //JSON
-    var url = "http://unitec.260mb.org/AplicacionesPHP/selectHora.php?jsoncallback=?";
+    var url = "http://127.0.0.1/AplicacionesPHP/selectHora.php?jsoncallback=?";
     $.getJSON(url, { carreraJ:carrera, materiaJ:materia})
     .done(function(data) {    
         $.each(data, function(i,item){
@@ -266,7 +266,7 @@ function cargarHorario2(){
     //var valor = $("#sel-horario option:selected").html();
     //alert(valor); 
     //JSON
-    var url = "http://unitec.260mb.org/AplicacionesPHP/selectHora.php?jsoncallback=?";
+    var url = "http://127.0.0.1/AplicacionesPHP/selectHora.php?jsoncallback=?";
     $.getJSON(url, { carreraJ:carrera, materiaJ:materia})
     .done(function(data) {    
         $.each(data, function(i,item){
@@ -279,7 +279,7 @@ function cargarHorario2(){
 function cargarHorarioAlumnos(){
     var galleta = $.cookie('usuario');  
     var lista=$("#horarioA");
-    var url = "http://unitec.260mb.org/AplicacionesPHP/verHorario.php?jsoncallback=?";
+    var url = "http://127.0.0.1/AplicacionesPHP/verHorario.php?jsoncallback=?";
     $.getJSON(url, { cedulaJ:galleta})
     .done(function(data) {   
         var cant=0;
@@ -315,7 +315,7 @@ function cargarHorarioAlumnos(){
 function cargarHorarioProfesor(){
     var galleta = $.cookie('usuario');  
     var lista=$("#horarioP");
-    var url = "http://unitec.260mb.org/AplicacionesPHP/verHorarioProfe.php?jsoncallback=?";
+    var url = "http://127.0.0.1/AplicacionesPHP/verHorarioProfe.php?jsoncallback=?";
     $.getJSON(url, { cedulaJ:galleta})
     .done(function(data) {   
     var cant=0;
@@ -354,7 +354,7 @@ function cargarMaterias(){
     var materia= $("#sel-materia");
     var materia2= $("#sel-materia2");
 
-    var url = "http://unitec.260mb.org/AplicacionesPHP/selectMateria.php?jsoncallback=?";
+    var url = "http://127.0.0.1/AplicacionesPHP/selectMateria.php?jsoncallback=?";
     $.getJSON(url, { cook:"galleta"})
     .done(function(data) {    
         $.each(data, function(i,item){
@@ -368,7 +368,7 @@ function cargarMaterias(){
 function cargarNotaAlumno(){
      
     var lista=$("#notasA");
-    var url = "http://unitec.260mb.org/AplicacionesPHP/notaAlumno.php?jsoncallback=?";
+    var url = "http://127.0.0.1/AplicacionesPHP/notaAlumno.php?jsoncallback=?";
     $.getJSON(url, { cedulaJ:"21029953"})
     .done(function(data) {    
         var cant=0;
@@ -411,7 +411,7 @@ function login(){
     var datosUsuario = $("#usuario").val();
     var datosPassword = $("#password").val();
     //JSON
-    var archivoValidacion = "http://unitec.260mb.org/AplicacionesPHP/login.php?jsoncallback=?";
+    var archivoValidacion = "http://127.0.0.1/AplicacionesPHP/login.php?jsoncallback=?";
 
     $.getJSON( archivoValidacion, { usuario:datosUsuario,password:datosPassword})
     .done(function(respuestaServer) {
@@ -467,7 +467,7 @@ function modificarDatos(){
     }
     else{
         //JSON MODIFICAR DATOS
-    var archivoValidacion = "http://unitec.260mb.org/AplicacionesPHP/modificarDatos.php?jsoncallback=?";
+    var archivoValidacion = "http://127.0.0.1/AplicacionesPHP/modificarDatos.php?jsoncallback=?";
    $.getJSON( archivoValidacion, { Nombre:nom,Apellido:apell, Correo:mail})
     .done(function(respuestaServer) {
         

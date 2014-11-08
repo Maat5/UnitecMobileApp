@@ -1,8 +1,11 @@
 $(document).on("ready",start);
 
+var galleta = $.cookie('usuario');
 function start(){
    //$('#submitButton').on('submit',checkStatus);
+   loadName();
    checkStatus();
+  
 }
 
 //Optioene los datos del URL por el metodo GET    
@@ -28,4 +31,15 @@ function checkStatus(){
     $('#cedLab').text("Cedula");
     $('#passLab').text("Contraseña")
    }
+}
+
+function loadName(){
+  var nameUsr = $('#nameUsr');
+  var url = "http://127.0.0.1/UnitecMobileApp/NewApp/PHP/cargarNombre.php?jsoncallback=?";
+  $.getJSON(url, {cedula:galleta}).done(function(data){
+    $.each(data,function(i,item){
+      nameUsr.text("Prof. "+item.nom +" "+ item.app);
+    })
+      
+  });
 }

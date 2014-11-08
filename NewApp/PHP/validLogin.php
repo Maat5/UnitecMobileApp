@@ -2,11 +2,7 @@
   include("conex.php");
   
   resultSet();
-/*$usr =  $_GET["usuario"];
-  $pass = $_GET["password"];
 
-  */
-   
   function QueryLogin($sql)
   {
     $sqlQ = $sql;
@@ -28,19 +24,19 @@
       $sendJS["T"]   = $row[1];
       $type          = $sendJS["T"];
     }
-    validUser($cont,$type);
+    validUser($cont,$type,$ced);
     printJson($sendJS);
   }
 
-  function validUser($cont, $type){
+  function validUser($cont, $type,$ced){
     if($cont!= 0 && $type == 1){
-      setcookie("usuario",$ced,time()+36000,'/');
-      header('Location: ../main2.html' );
+      setcookie("usuario",$ced,time()+36000,"/");
+      header('Location: ../Alumno/mainAlumno.html' );
     }
     else
       if($cont!=0 && $type ==2){
-        setcookie("usuario",$ced,time()+36000,'/');
-        header('Location: ../mainMenuProf.html');
+        setcookie("usuario",$ced,time()+36000,"/");
+        header('Location: ../Profesores/mainMenuProf.html');
       }
       else{
         $sendJS["mensaje"] = "prueb";

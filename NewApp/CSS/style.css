@@ -8,6 +8,7 @@ header{
 	width: auto;
 	padding: 1px;
 	background: #3F51B5;
+
 }
 
 #logoUnitec img{
@@ -26,7 +27,7 @@ header{
 	width: auto;
 	position: relative;
 	display: block;
-	margin: 0 auto;
+	margin: 0px auto;
 	top: 30px;
 	padding: 10px 10px 10px 10px;
 	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
@@ -34,12 +35,13 @@ header{
 .less{
 	top:0;
 }
+
 .menuWrapper{
 	width: auto;
 	/*width: 330px;*/
 	position: relative;
 	display: block;
-	margin: 0 auto;
+	margin: 0px auto;
 	top: 20px;
 	padding: 10px 10px 10px 10px;
 }
@@ -47,6 +49,15 @@ header{
 	position: relative;
 	margin-bottom: 45px;
 	top: 15px;
+}
+.subGroupLogin{
+	position: relative;
+	margin-bottom: 45px;
+	top: 35px;
+	left: 10px;
+}
+.subGroupLogin input{
+	width: 90%;
 }
 
 input,select{
@@ -71,12 +82,24 @@ input,select{
 	transition: 0.2s ease all;
 }
 
+a#not1 , a#not2{
+	color:  #999;
+	font-size: 18px;
+	font-weight: normal;
+	position: absolute;
+	text-decoration: none;
+	display: block;
+	width: 100%;
+	left: 5px;
+	top: 10px;
+	transition: 0.2s ease all;
+}
 .labelError{
 	color: #E51C23;
 }
 
 /* Animation of log in form */
-input:focus ~ .animateMove, input:valid ~ .animateMove,select:focus ~ .animateMoveList, select:valid ~ .animateMoveList{
+input:focus ~ .animateMove, input:valid ~ .animateMove,select:focus ~ .animateMoveList, select:valid ~ .animateMoveList, input:focus ~ .animateMoveList{
 	top: -20px;
 	font-size: 14px;
 	color: #5264AE;
@@ -156,7 +179,6 @@ input:focus ~ .highlight{
   color: #000;
 }
 
-
 .button:active{
 	animation: buttonInput 0.3s ease;
 	-webkit-animation:buttonInput 0.3s ease;
@@ -175,9 +197,11 @@ input:focus ~ .highlight{
 	color: #E8EAF6;
 	font-weight: bold;
 	text-align: left;
+
 }
 .headerProf label{
 	position: relative;
+	width: auto;
 	left: 10px;
 }
 
@@ -202,7 +226,6 @@ input:focus ~ .highlight{
   cursor: pointer;
 }
 
-
 .centerLink{
 	position: relative;
 	top:0;
@@ -218,8 +241,8 @@ input:focus ~ .highlight{
 	display: block;
 	padding: 10px 20px 10px 20px;
 }
+
 li a{
-	
 }
 /* Menu Arrows*/
 li i{
@@ -257,7 +280,7 @@ li i:hover{
 	margin-left:2%;
 }
 .divider{
-	width: 100%;
+	width: auto;
 	padding: 2%;
 	margin: 0 auto;
 	/* color: #eceff1;*/
@@ -266,12 +289,10 @@ li i:hover{
 	margin-left: 10px;
 }
 .cont{
-	text-align: center;	
-	margin: 2px auto;
-	width: 88.5%;
-	margin-left: 8px;
+	position: relative;
+	text-align: center;
+	width: 80%;
 	padding: 5%;
-
 } 
 .nomMat,.horaMAt{
 	display: block;
@@ -311,6 +332,42 @@ li i:hover{
 	width: auto;
 	margin-top: 5px;
 }
+
+#displayContainer{
+	padding: 1%;
+}
+input.radio{
+	display: inline;
+	width: auto;
+	margin: 10px auto;
+	padding: 1%;
+	line-height: 10px;
+} 
+
+.radio{
+	margin-left:5px;
+}
+
+.list-item li{
+	border:1px solid #e3e4e4;
+	margin: 10px auto;
+	padding: 1%;
+	text-align: left; 
+	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+}
+/*#irAtras{
+	margin-right: 0;
+}
+
+#irAtras .fa-chevron-left{
+	width: 80px;
+	height: 80px;
+	line-height: 80px; 	
+	border-radius: 50%;
+	color: white;
+	text-align: center;
+	padding: 0;
+}*/
 /* --------------------Finish Notes section---------------*/ 
 /*Animation */
 @keyframes inputHighlighter{
@@ -345,7 +402,7 @@ li i:hover{
 
 /* ------------------------ Colors -------------------*/
 
-.orange,.blueGray,.blueGrayLight,.orangeLight, .teal, .teals{
+.orange,.blueGray,.blueGrayLight,.orangeLight, .teal, .teals, .lightGreen,.red{
 	color: #E8EAF6;
 }
 .orange{
@@ -372,9 +429,16 @@ li i:hover{
 .teal{
 	background: #5C6BC0;
 }
+.lightGreen{
+	background: #3BC34A;
+}
+.red{
+	background: #E51C23;
+}
+
 /* ------------------ Finish Colors ------------------*/
 
 /*--------------------- Hiden items------------------- */
-#hiden1{
+#hiden1, #todoAlumnos,#unAlumno{
 	display: none;
 }

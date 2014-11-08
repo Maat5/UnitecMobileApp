@@ -3,25 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>UNITEC - Profesores</title>
-  <link rel="stylesheet" href="CSS/normalize.css">
-  <link rel="stylesheet" href="CSS/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UNITEC - Alumnos</title>
+  <link rel="stylesheet" href="../CSS/normalize.css">
+  <link rel="stylesheet" href="../CSS/style.css">
   <!--link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"-->
-  <link href="font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet">
-  <script src="JS/jquery.js"></script>
-  <script src="JS/json.js" ></script>
-  <script src="JS/app.js"></script>
+  <link href="../font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="../JS/jquery.js"></script>
+  <script src="../JS/app.js"></script>
 </head>
 <body>
-  <header id="header" class="headerProf">
+  <header id="header" class="headerProf blueGray">
     <h3>  
       <i class="fa fa-user fa-lg"></i>
-      <label>Prof. Manuel Abrante</label>
+       <label><span id="nameUsr"></span></label>
     </h3>
   </header>
   <section class= "menuWrapper" >
     <section class="menu">
-      <ul class="spaceMenu">
+      <ul class="spaceMenu ">
         <li>
           <span class="centerLink">
             <a href="insertarNota.html">Insertar Notas</a>
@@ -36,13 +36,13 @@
         </li>
         <li>
           <span class="centerLink">
-            <a href="#">Modificar Datos</a>
+            <a href="modificar.html">Modificar Datos</a>
           </span>
           <i class="fa fa-chevron-right"></i>
         </li>
         <li>
           <span class="centerLink">
-            <a href="verNotas.html">Ver Notas</a>
+            <a href="notasAlumnos.html">Ver Notas</a>
           </span>
           <i class="fa fa-chevron-right"></i>
         </li>
