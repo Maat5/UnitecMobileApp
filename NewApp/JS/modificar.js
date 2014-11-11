@@ -8,7 +8,8 @@ function start(){
 }
 
 function cargarDatos(){
-    var url = "http://127.0.0.1/UnitecMobileApp/NewApp/PHP/cargarDatos.php?jsoncallback=?";
+    //var url = "http://127.0.0.1/UnitecMobileApp/NewApp/PHP/cargarDatos.php?jsoncallback=?";
+    var url = "http://unitec.260mb.org/PHP/cargarDatos.php?jsoncallback=?";
     $.getJSON( url, { Cedula:"",Nombre:"",Apellido:"",Correo:""}).done(function(data) {
         $.each(data, function(i,item){
             $('#NameLast').val(item.Nombre + " "+item.Apellido);
@@ -30,7 +31,8 @@ function modificarDatos(){
         alert("Faltan Campos por Rellenar");
     }
     else{
-        var url = "http://127.0.0.1/UnitecMobileApp/NewApp/PHP/modificar.php?jsoncallback=?";
+       // var url = "http://127.0.0.1/UnitecMobileApp/NewApp/PHP/modificar.php?jsoncallback=?";
+        var url = "http://unitec.260mb.org/PHP/modificar.php?jsoncallback=?";
         $.getJSON( url, { Nombre:nom,Apellido:apell, Correo:mail}).done(function(respuestaServer) {
         
         alert(respuestaServer.mensaje)

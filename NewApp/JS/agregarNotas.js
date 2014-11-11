@@ -20,7 +20,8 @@ function start(){
 function cargarMaterias(){
 
     var materia= $("#nomMateria");
-    var url = "http://127.0.0.1/UnitecMobileApp/NewApp/PHP/cargarMateria.php?jsoncallback=?";
+    //var url = "http://127.0.0.1/UnitecMobileApp/NewApp/PHP/cargarMateria.php?jsoncallback=?";
+    var url = "http://unitec.260mb.org/PHP/cargarMateria.php?jsoncallback=?";
     $.getJSON(url, { cedula:galleta})
     .done(function(data) {    
         $.each(data, function(i,item){
@@ -41,7 +42,8 @@ function cargarCarreras(){
     $("#nomCarrera").empty();
     $('#nomCarrera').append('<option selected>--Seleccione--</option>');
 
-    var url = "http://127.0.0.1/UnitecMobileApp/NewApp/PHP/cargarCarrera.php?jsoncallback=?";
+    //var url = "http://127.0.0.1/UnitecMobileApp/NewApp/PHP/cargarCarrera.php?jsoncallback=?";
+    var url = "http://unitec.260mb.org/PHP/cargarCarrera.php?jsoncallback=?";
     $.getJSON(url, { materiaJ:materia}).done(function(data) {    
       $.each(data, function(i,item){
         var agregaC = '<option value="'+item.Id_Carrera+'">'+item.Nombre_Carrera+'</option>';
@@ -60,7 +62,8 @@ function cargarHorario(){
     $("#nomHorario").empty();
     $('#nomHorario').append('<option selected>--Seleccione--</option>');
     
-    var url = "http://127.0.0.1/UnitecMobileApp/NewApp/PHP/cargarHorario.php?jsoncallback=?"
+   // var url = "http://127.0.0.1/UnitecMobileApp/NewApp/PHP/cargarHorario.php?jsoncallback=?"
+    var url = "http://unitec.260mb.org/PHP/cargarHorario.php?jsoncallback=?"
     $.getJSON(url, { carreraJ:carrera, materiaJ:materia}).done(function(data) {    
     $.each(data, function(i,item){
       var agregaH = '<option value="'+item.Id_HorarioCarreraMateria+'">'+item.Dia+ " De " + item.Hora_Inicio+ " a " +item.Hora_Fin+'</option>';
@@ -75,7 +78,8 @@ function cargarAlumnos(){
     var horario = $('#nomHorario').val();
     var alumnos = $('#uu');
     //JSON
-    var url = "http://127.0.0.1/UnitecMobileApp/NewApp/PHP/cargarAlumnoNota.php?jsoncallback=?";
+    //var url = "http://127.0.0.1/UnitecMobileApp/NewApp/PHP/cargarAlumnoNota.php?jsoncallback=?";
+    var url = "http://unitec.260mb.org/PHP/cargarAlumnoNota.php?jsoncallback=?";
     $.getJSON(url, { horarioJ:horario})
     .done(function(data){    var cant=0;
         $.each(data, function(i,item){
@@ -88,7 +92,8 @@ function cargarAlumnos(){
 
 function loadName(){
   var nameUsr = $('#nameUsr');
-  var url = "http://127.0.0.1/UnitecMobileApp/NewApp/PHP/cargarNombre.php?jsoncallback=?";
+  //var url = "http://127.0.0.1/UnitecMobileApp/NewApp/PHP/cargarNombre.php?jsoncallback=?";
+   var url = "http://unitec.260mb.org/PHP/cargarNombre.php?jsoncallback=?";
   $.getJSON(url, {cedula:galleta}).done(function(data){
     $.each(data,function(i,item){
       nameUsr.text("Prof. "+item.nom +" "+ item.app);
@@ -121,7 +126,8 @@ function agregarNota(){
     if(seleccion==1){
       if(nota!=""){
         if(idalumnocarreramateria!=undefined){
-          var url = "http://127.0.0.1/UnitecMobileApp/NewApp/PHP/agregarNota.php?jsoncallback=?";
+        //  var url = "http://127.0.0.1/UnitecMobileApp/NewApp/PHP/agregarNota.php?jsoncallback=?";
+        var url = "http://unitec.260mb.org/PHP/agregarNota.php?jsoncallback=?";
           $.getJSON(url, { idehcm:idalumnocarreramateria,notaJ:nota}).done(function(data) { });
           alert("Se Agregó La Nota Exitosamente");
           $('#nota1').attr("value","");
@@ -137,15 +143,15 @@ function agregarNota(){
     if(seleccion==2)
       {
         var id;
-        var url = "http://127.0.0.1/UnitecMobileApp/NewApp/PHP/agregarNota2.php?jsoncallback=?";
-
+       // var url = "http://127.0.0.1/UnitecMobileApp/NewApp/PHP/agregarNota2.php?jsoncallback=?";
+       var url = "http://unitec.260mb.org/PHP/agregarNota2.php?jsoncallback=?";
         $.getJSON(url, { cedulaJ:cedula,notaJ:nota, horarioJ:horario}).done(function(data) { 
          var c=0;
          $.each(data, function(i,item){
           if(nota!=""){
             c++; 
-            var url = "http://127.0.0.1/UnitecMobileApp/NewApp/PHP/agregarNota.php?jsoncallback=?";
-
+            //var url = "http://127.0.0.1/UnitecMobileApp/NewApp/PHP/agregarNota.php?jsoncallback=?";
+            var url = "http://unitec.260mb.org/PHP/agregarNota.php?jsoncallback=?";
              $.getJSON(url, { idehcm:item.Id_EstudianteHorarioCarreraMateria,notaJ:nota}).done(function(data) {});
            }
             else

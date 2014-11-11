@@ -31,16 +31,16 @@
   function validUser($cont, $type,$ced){
     if($cont!= 0 && $type == 1){
       setcookie("usuario",$ced,time()+36000,"/");
-      header('Location: ../Alumno/mainAlumno.html' );
+      //header('Location: ../Alumno/mainAlumno.html' );
     }
     else
       if($cont!=0 && $type ==2){
         setcookie("usuario",$ced,time()+36000,"/");
-        header('Location: ../Profesores/mainMenuProf.html');
+        //header('Location: ../Profesores/mainMenuProf.html');
       }
       else{
         $sendJS["mensaje"] = "prueb";
-        header('Location: ../index.html?stat=Inv');
+        //header('Location: ../index.html?stat=Inv');
       }
   }
 

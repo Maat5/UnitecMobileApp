@@ -3,7 +3,7 @@ include("conex.php");
 header('Content-type: application/json');
 
 /* Extrae los valores enviados desde la aplicacion movil (load-json.js -->Funcion agregarHora)*/
-$ced = $_GET["cedula"];
+$ced = $_COOKIE['usuario'];
 //Consulta a la base de datos
 $sql = "SELECT Nombre, Apellido FROM usuario WHERE Cedula='$ced'";
 

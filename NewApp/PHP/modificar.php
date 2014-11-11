@@ -3,8 +3,6 @@
 include("conex.php");
 header('Content-type: application/json');
 
-/* Extrae los valores enviados desde la aplicacion movil (load-json.js -->Funcion agregarHora)*/
-//$cedulaEnviada = $_GET['cedulaJ'];
 $cedulaEnviada = $_COOKIE['usuario'];
 
 $name= $_GET['Nombre'];

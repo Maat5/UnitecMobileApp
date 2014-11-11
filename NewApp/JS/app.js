@@ -2,7 +2,7 @@ $(document).on("ready",start);
 
 var galleta = $.cookie('usuario');
 function start(){
-   //$('#submitButton').on('submit',checkStatus);
+   $('#submitButton').on('click',login);
    loadName();
    checkStatus();
   
@@ -35,11 +35,43 @@ function checkStatus(){
 
 function loadName(){
   var nameUsr = $('#nameUsr');
-  var url = "http://127.0.0.1/UnitecMobileApp/NewApp/PHP/cargarNombre.php?jsoncallback=?";
+  //var url = "http://127.0.0.1/UnitecMobileApp/NewApp/PHP/cargarNombre.php?jsoncallback=?";
+  var url = "http://unitec.260mb.org/PHP/cargarNombre.php?jsoncallback=?";
   $.getJSON(url, {cedula:galleta}).done(function(data){
     $.each(data,function(i,item){
       nameUsr.text("Prof. "+item.nom +" "+ item.app);
     })
       
   });
+}
+
+
+function login(){
+    // Recolecta Los Valores Que Insertó El Usuario
+    var datosUsuario = $("#usuario").val();
+    var datosPassword = $("#password").val();
+    //JSON
+    //var archivoValidacion = "http://127.0.0.1/UnitecMobileApp/NewApp/PHP/login.php?jsoncallback=?";
+    var archivoValidacion = "http://unitec.260mb.org/PHP/login.php?jsoncallback=?";
+    $.getJSON( archivoValidacion, { usuario:datosUsuario,password:datosPassword})
+    .done(function(respuestaServer) {
+        
+        //alert(respuestaServer.mensaje)
+        if(respuestaServer.validacion > 0 && respuestaServer.T== 1){       
+            /// Si La Validacion Es Correcta, Muestra La Página Main        
+            location.href='Alumno/mainAlumno.html';          
+        }
+        else if(respuestaServer.validacion > 0 && respuestaServer.T== 2){       
+            /// Si La Validacion Es Correcta, Muestra La Página Main        
+            location.href='Profesores/mainMenuProf.html';          
+        }
+        else
+        {   
+            /// Ejecutar Una Conducta Cuando La Validacion Falla 
+             $('#cedLab').text("Cedula Incorrecto").addClass('labelError');
+             $('#passLab').text("Contraseña Incorrecta").addClass('labelError');            
+        }
+  
+    });
+    return false;
 }

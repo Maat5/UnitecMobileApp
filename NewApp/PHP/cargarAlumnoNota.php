@@ -2,7 +2,7 @@
 include("conex.php");
 header('Content-type: application/json');
 
-/* Extrae los valores enviados desde la aplicacion movil (load-json.js -->Funcion agregarHora)*/
+
 $horarioCarreraMateriaEnviado = $_GET['horarioJ'];
 
 $con = mysql_connect($server, $username, $password) or die ("Could not connect: " . mysql_error());

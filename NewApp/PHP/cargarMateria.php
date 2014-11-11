@@ -1,7 +1,7 @@
 <?php
 include("conex.php");
 
-$profe = $_GET['cedula'];
+$profe = $_COOKIE['usuario'];
 
 $sql = "SELECT DISTINCT M.Nombre_Materia, M.Id_Materia FROM horariocarreramateria H INNER JOIN carreramateria C ON  H.Id_carrera_Materia_H = C.Id_Carrera_Materia INNER JOIN materias M ON  C.Id_Materia = M.Id_Materia where H.Cedula_Profesor_H='$profe'";
 

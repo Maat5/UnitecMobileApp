@@ -9,7 +9,8 @@ function start(){
 function loadSchedule(){ 
  
   var lista=$("#horarioP");
-  var url = "http://127.0.0.1/UnitecMobileApp/NewApp/PHP/horarioProfesor.php?jsoncallback=?";
+ // var url = "http://127.0.0.1/UnitecMobileApp/NewApp/PHP/horarioProfesor.php?jsoncallback=?";
+  var url = "http://unitec.260mb.org/PHP/horarioProfesor.php?jsoncallback=?";
   var agregarM;
 
   $.getJSON(url, { cedulaJ:galleta}).done(function(data) {   
@@ -22,7 +23,8 @@ function loadSchedule(){
 
 function loadName(){
   var nameUsr = $('#nameUsr');
-  var url = "http://127.0.0.1/UnitecMobileApp/NewApp/PHP/cargarNombre.php?jsoncallback=?";
+  //var url = "http://127.0.0.1/UnitecMobileApp/NewApp/PHP/cargarNombre.php?jsoncallback=?";
+  var url = "http://unitec.260mb.org/PHP/cargarNombre.php?jsoncallback=?";
   $.getJSON(url, {cedula:galleta}).done(function(data){
     $.each(data,function(i,item){
       nameUsr.text("Prof. "+item.nom +" "+ item.app);

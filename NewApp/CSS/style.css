@@ -60,7 +60,7 @@ header{
 	width: 90%;
 }
 
-input,select{
+input,select,textarea{
 	font-size: 19px;
 	padding: 10px 10px 10px 5px;
 	display: block;
@@ -99,7 +99,7 @@ a#not1 , a#not2{
 }
 
 /* Animation of log in form */
-input:focus ~ .animateMove, input:valid ~ .animateMove,select:focus ~ .animateMoveList, select:valid ~ .animateMoveList, input:focus ~ .animateMoveList{
+input:focus ~ .animateMove, input:valid ~ .animateMove,select:focus ~ .animateMoveList, select:valid ~ .animateMoveList, input:focus ~ .animateMoveList, textarea:focus~ .animateMove, textarea:valid ~ .animateMove{
 	top: -20px;
 	font-size: 14px;
 	color: #5264AE;
@@ -206,7 +206,7 @@ input:focus ~ .highlight{
 }
 
 /* Menu UL*/
-.spaceMenu{
+.spaceMenu, .spaceMenu2{
 	display: block;
 	/* width: 320px;*/
 	width: 100%;
@@ -215,7 +215,7 @@ input:focus ~ .highlight{
 	padding: 0;
 }
 
-.spaceMenu li{
+.spaceMenu li, .spaceMenu2 li{
 	position: relative;
 	padding: 15px 15px 15px 15px;
 	margin: 20px 10px 10px 10px;
@@ -225,7 +225,10 @@ input:focus ~ .highlight{
   background-color: #455EDE;
   cursor: pointer;
 }
+.spaceMenu2 li{
+	background-color: #FFC107;
 
+}
 .centerLink{
 	position: relative;
 	top:0;
@@ -402,7 +405,7 @@ input.radio{
 
 /* ------------------------ Colors -------------------*/
 
-.orange,.blueGray,.blueGrayLight,.orangeLight, .teal, .teals, .lightGreen,.red{
+.orange,.blueGray,.blueGrayLight,.orangeLight, .teal, .teals, .lightGreen,.red,.lightBlueGray,.amber{
 	color: #E8EAF6;
 }
 .orange{
@@ -435,10 +438,21 @@ input.radio{
 .red{
 	background: #E51C23;
 }
-
+.amber{
+	background-color: #FFC107;
+}
+.lightBlueGray{
+	background: #CFD8DC;
+	color: black;
+}
 /* ------------------ Finish Colors ------------------*/
 
 /*--------------------- Hiden items------------------- */
 #hiden1, #todoAlumnos,#unAlumno{
 	display: none;
+}
+
+.border{
+	margin-bottom: 5px;
+	padding: 10px;
 }

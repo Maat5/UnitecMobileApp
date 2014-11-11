@@ -1,7 +1,7 @@
 <?php
 include("conex.php");
 //header('Content-type: application/json');
-$cedulaEnviada = $_GET['cedulaJ'];
+$cedulaEnviada = $_COOKIE['usuario'];
 
 //Consulta a la base de datos
 //$sql = "SELECT H.Hora_Inicio, H.Hora_Fin, F.Dia, N.Nombre_Materia, U.Nombre FROM horariocarreramateria C INNER JOIN usuario U ON C.Cedula_Profesor_H=U.Cedula INNER JOIN carreramateria M ON C.Id_carrera_Materia_H = M.Id_Carrera_Materia INNER JOIN horario R ON C.Id_Horario_M = R.Id_Horario INNER JOIN hora H ON R.Id_Hora_Horario = H.Id_Hora INNER JOIN fecha F ON R.Id_Fecha_Horario = F.Id_Fecha INNER JOIN materias N ON M.Id_Materia=N.Id_Materia WHERE C.Cedula_Profesor_H='$cedulaEnviada' ORDER BY F.Id_Fecha ASC";
