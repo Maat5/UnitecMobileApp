@@ -1,0 +1,458 @@
+html 
+{ 
+	height: 100%;
+	width: 100%;
+}
+/* Header Principal Inicio*/
+header{
+	width: auto;
+	padding: 1px;
+	background: #3F51B5;
+
+}
+
+#logoUnitec img{
+	width: 250px;
+	display: block;
+	margin: 0 auto;
+}
+
+#header h1{
+	margin-top: -60px;
+	padding: 1px;
+	color: #E8EAF6;
+	text-align: center;
+}
+.wrapper{
+	width: auto;
+	position: relative;
+	display: block;
+	margin: 0px auto;
+	top: 30px;
+	padding: 10px 10px 10px 10px;
+	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+}
+.less{
+	top:0;
+}
+
+.menuWrapper{
+	width: auto;
+	/*width: 330px;*/
+	position: relative;
+	display: block;
+	margin: 0px auto;
+	top: 20px;
+	padding: 10px 10px 10px 10px;
+}
+.groupLogin{
+	position: relative;
+	margin-bottom: 45px;
+	top: 15px;
+}
+.subGroupLogin{
+	position: relative;
+	margin-bottom: 45px;
+	top: 35px;
+	left: 10px;
+}
+.subGroupLogin input{
+	width: 90%;
+}
+
+input,select,textarea{
+	font-size: 19px;
+	padding: 10px 10px 10px 5px;
+	display: block;
+	/*width: 300px;*/
+	width: 99%;
+	border: none;
+	border-bottom: 1px solid #757575;
+}
+
+/* Login Label - moving*/
+.animateMove, .animateMoveList{
+	color:  #999;
+	font-size: 18px;
+	font-weight: normal;
+	position: absolute;
+	pointer-events:none;
+	left: 5px;
+	top: 10px;
+	transition: 0.2s ease all;
+}
+
+a#not1 , a#not2{
+	color:  #999;
+	font-size: 18px;
+	font-weight: normal;
+	position: absolute;
+	text-decoration: none;
+	display: block;
+	width: 100%;
+	left: 5px;
+	top: 10px;
+	transition: 0.2s ease all;
+}
+.labelError{
+	color: #E51C23;
+}
+
+/* Animation of log in form */
+input:focus ~ .animateMove, input:valid ~ .animateMove,select:focus ~ .animateMoveList, select:valid ~ .animateMoveList, input:focus ~ .animateMoveList, textarea:focus~ .animateMove, textarea:valid ~ .animateMove{
+	top: -20px;
+	font-size: 14px;
+	color: #5264AE;
+}
+/* Outline of log in inputs*/
+input:focus{
+	outline: none;
+	border: none;
+}
+
+/* autofill background  */
+input:-webkit-autofill , select:-webkit-autofill{
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+input:-moz-autofill, select:-moz-autofill{
+	-moz-box-shadow: 0 0 0px 1000px white inset;
+}
+
+/* Bottom bars*/
+.bar {
+	position: relative;
+	display: block;
+	/*width: 300px;*/
+	width: auto;
+}
+
+.bar:before, .bar:after{
+	content: '';
+	height: 2px;
+	width: 0;
+	bottom: 1px;
+	position: absolute;
+	background: #5264AE;
+}
+
+.bar:before{
+	left: 50%;
+}
+.bar:after{
+	right: 50%;
+}
+
+/* Active state*/
+
+input:focus ~ .bar:before, input:focus ~ .bar:after{
+	width: 50%;
+	outline: none;
+}
+
+/* Highlighter*/
+.highlight{
+	position: absolute;
+	height: 60%;
+	width: 100px;
+	top: 25%;
+	left: 0;
+	pointer-events:none;
+	opacity: 0.5;
+	border: 0;
+}
+
+
+/* Active state*/
+input:focus ~ .highlight{
+	animation: inputHighlighter 0.3s ease;
+	-webkit-animation:inputHighlighter 0.3s ease;
+}
+
+.button{
+	display: block;
+	position: relative;
+	width: 120px;
+	border-radius: 2px;
+	font-size: 0.9em;
+	background: #FFF;
+  color: #000;
+}
+
+.button:active{
+	animation: buttonInput 0.3s ease;
+	-webkit-animation:buttonInput 0.3s ease;
+}
+
+/* -------------------------- Start Menu Section ------------------*/
+/* Header Prof*/
+.headerProf{
+	background-color: #3F51B5;
+	height: 50px;
+	box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.headerProf  h3{
+	margin: 15px 10px 15px 25px;
+	color: #E8EAF6;
+	font-weight: bold;
+	text-align: left;
+
+}
+.headerProf label{
+	position: relative;
+	width: auto;
+	left: 10px;
+}
+
+/* Menu UL*/
+.spaceMenu, .spaceMenu2{
+	display: block;
+	/* width: 320px;*/
+	width: 100%;
+	list-style: none;
+	text-align: justify;
+	padding: 0;
+}
+
+.spaceMenu li, .spaceMenu2 li{
+	position: relative;
+	padding: 15px 15px 15px 15px;
+	margin: 20px 10px 10px 10px;
+	height: 40px;
+  color: #646464;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+  background-color: #455EDE;
+  cursor: pointer;
+}
+.spaceMenu2 li{
+	background-color: #FFC107;
+
+}
+.centerLink{
+	position: relative;
+	top:0;
+	text-align: left;
+}
+.centerLink a{
+	color: #01579B;
+	text-decoration: none;
+	font-size: 18px;
+	font-weight: bold;
+	color:#F1F1F1;
+	margin-left: 0px;
+	display: block;
+	padding: 10px 20px 10px 20px;
+}
+
+li a{
+}
+/* Menu Arrows*/
+li i{
+	position: absolute;
+	top: 18px;
+	right: 15px;
+	width: 15px;
+	text-align: center;
+	padding: 10px 10px 10px 10px;
+	border-radius: 50%;
+	color:#F1F1F1;
+}
+
+li i:hover{
+	background-color: #A6BAFF;
+	color: black;
+	transition: 0.2s linear all;
+}
+
+.spaceMenu li:active{
+	animation: buttonInput 0.2s ease;
+	-webkit-animation: buttonInput 0.2s ease;
+	/*transition:0.2s ease all;*/
+}
+/* -------------------- Finish Menu Section--------------*/
+
+/* -------------------- Start schedule Section ------------- */
+
+.listview{
+	list-style: none;
+	width: auto;
+	margin: 0 25px 10px 5px;
+	padding: 0;
+	font-weight: bold;
+	margin-left:2%;
+}
+.divider{
+	width: auto;
+	padding: 2%;
+	margin: 0 auto;
+	/* color: #eceff1;*/
+}
+.divider label{
+	margin-left: 10px;
+}
+.cont{
+	position: relative;
+	text-align: center;
+	width: 80%;
+	padding: 5%;
+} 
+.nomMat,.horaMAt{
+	display: block;
+}
+.nomMat{
+	margin-top: 10px;
+	font-size: 16px;	
+}
+
+.horaMAt{
+	margin-top: 5px;
+	font-size: 14px;
+}
+
+/* --------------------Finish schedule section---------------*/
+/* -------------------- Notes section-----------------------*/
+.listview2{
+	display: block;
+	list-style: none;
+	padding: 0;
+}
+.item{
+	text-align: justify;
+	padding: 1%;
+	width: 96%;
+	border-bottom: 1px solid #999;
+}
+#searchInput{
+	width: 95%;
+}
+
+.sub-item{
+	display: block;
+	padding: 1%;
+	font-size: 15px;
+	font-weight: bold;
+	width: auto;
+	margin-top: 5px;
+}
+
+#displayContainer{
+	padding: 1%;
+}
+input.radio{
+	display: inline;
+	width: auto;
+	margin: 10px auto;
+	padding: 1%;
+	line-height: 10px;
+} 
+
+.radio{
+	margin-left:5px;
+}
+
+.list-item li{
+	border:1px solid #e3e4e4;
+	margin: 10px auto;
+	padding: 1%;
+	text-align: left; 
+	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+}
+/*#irAtras{
+	margin-right: 0;
+}
+
+#irAtras .fa-chevron-left{
+	width: 80px;
+	height: 80px;
+	line-height: 80px; 	
+	border-radius: 50%;
+	color: white;
+	text-align: center;
+	padding: 0;
+}*/
+/* --------------------Finish Notes section---------------*/ 
+/*Animation */
+@keyframes inputHighlighter{
+	 from{
+	  background: #5264AE;
+	}
+	 to{
+	 	width: 0; 
+	 	background: transparent;
+	 }
+}
+@-webkit-keyframes inputHighlighter{
+	 from{
+	  background: #5264AE;
+	}
+	to{
+		width: 0; 
+	 	background: transparent;
+	}
+}
+
+@-webkit-keyframes buttonInput{
+	from { 
+		background: #9FA8DA;
+	}
+	to  {
+		margin-left: 100px;	
+		width: 0;
+		background: transparent;
+	}
+}
+
+/* ------------------------ Colors -------------------*/
+
+.orange,.blueGray,.blueGrayLight,.orangeLight, .teal, .teals, .lightGreen,.red,.lightBlueGray,.amber{
+	color: #E8EAF6;
+}
+.orange{
+	background: #ff9800;
+}
+.orangeLight{
+	background: #FFA726;
+}
+.orangeLightM{
+	background: #FFF3E0;
+}
+.blueGray{
+	background: #607D8b;
+}
+.blueGrayLight{
+	background: #B0BEC5;
+}
+.whiteGray{
+	background: #CFD8DC;
+}
+.teals{
+	background: #009688;
+}
+.teal{
+	background: #5C6BC0;
+}
+.lightGreen{
+	background: #3BC34A;
+}
+.red{
+	background: #E51C23;
+}
+.amber{
+	background-color: #FFC107;
+}
+.lightBlueGray{
+	background: #CFD8DC;
+	color: black;
+}
+/* ------------------ Finish Colors ------------------*/
+
+/*--------------------- Hiden items------------------- */
+#hiden1, #todoAlumnos,#unAlumno{
+	display: none;
+}
+
+.border{
+	margin-bottom: 5px;
+	padding: 10px;
+}
