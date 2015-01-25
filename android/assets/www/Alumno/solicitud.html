@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UNITEC - Alumnos</title>
+  <link rel="stylesheet" href="../CSS/normalize.css">
+  <link rel="stylesheet" href="../CSS/style.css">
+  <!--link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"-->
+  <link href="../font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="../JS/jquery.js"></script>
+  <script src="../JS/cookie.js"></script>
+  <script src="../JS/solicitud.js" ></script>
+</head>
+<body>
+  <header id="header" class="headerProf blueGrayLight">
+    <h3>  
+      <i class="fa fa-user fa-lg"></i>
+      <label><span id="nameUsr"></span></label>
+    </h3>
+  </header>
+  <section class= "menuWrapper" >
+
+   <section class="groupLogin">
+    <input type="text" id="NameLast" name="NombreModificar"required>
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label  id="cedLab" class="animateMove">Nombre y Apellido</label>
+  </section>
+
+  <section class="groupLogin">
+    <input type="text" id="Cedula" name="ApellidoModificar" required>
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label id="passLab" class="animateMove">Cedula</label>
+  </section>
+
+  <section class="groupLogin">
+    <input type="text" id="email" name="CorreoModificar" required>
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label id="passLab" class="animateMove">Correo</label>
+  </section>
+
+  <section class="groupLogin">
+    <select id="Solicitud" required>
+      <option value=""></option>
+      <option>Solicitar Constancia</option>
+      <option>Solicitar Notas Certicadas</option>
+      <option>otros</option>
+    </select>
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label class="animateMoveList">Tipo Solicitud</label>
+  </section>
+
+  <section class="groupLogin">
+    <!--input type="text" id="CorreoModificar" name="CorreoModificar" required-->
+    <textarea id="textSoli"></textarea>
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label id="passLab" class="animateMove">Inserte Detalles de Solicitud</label>
+  </section>
+  <div >
+    <input type="submit" value="Enviar Solicitud" class="button teal" id="sendMail">
+  </div>
+</section>
+</body>
+</html>
